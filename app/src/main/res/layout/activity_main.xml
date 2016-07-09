@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.huaxing.a3dgame.MainActivity">
+
+    <HorizontalScrollView
+        android:id="@+id/mainactivity_top_hscrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/mainactivity_top_bg"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <RadioGroup
+            android:id="@+id/mainactivity_top_radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/mainactivity_radiobtn01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="文章首页"
+                android:textColor="@color/radiobutton_top_textcolor"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/mainactivity_radiobtn02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="热点新闻"
+                android:textColor="@color/radiobutton_top_textcolor"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/mainactivity_radiobtn03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="游戏杂谈"
+                android:textColor="@color/radiobutton_top_textcolor"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/mainactivity_radiobtn04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="硬件信息"
+                android:textColor="@color/radiobutton_top_textcolor"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/mainactivity_radiobtn05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="游戏前瞻"
+                android:textColor="@color/radiobutton_top_textcolor"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/mainactivity_radiobtn06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="游戏评测"
+                android:textColor="@color/radiobutton_top_textcolor"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/mainactivity_radiobtn07"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="原创精品"
+                android:textColor="@color/radiobutton_top_textcolor"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/mainactivity_radiobtn08"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="游戏盘点"
+                android:textColor="@color/radiobutton_top_textcolor"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/mainactivity_radiobtn09"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="时事焦点"
+                android:textColor="@color/radiobutton_top_textcolor"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/mainactivity_radiobtn10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="攻略中心"
+                android:textColor="@color/radiobutton_top_textcolor"
+                android:textSize="16sp" />
+        </RadioGroup>
+    </HorizontalScrollView>
+
+    <RadioGroup
+        android:id="@+id/mainactivity_bottom_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#000000"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
+        <RadioButton
+            android:id="@+id/mainactivity_bottom_btn01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/main_bottom_chapter"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="文章"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/mainactivity_bottom_btn02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/main_bottom_forum"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="论坛"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/mainactivity_bottom_btn03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/main_bottom_game"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="游戏"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_activity_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/mainactivity_bottom_rg"
+        android:layout_below="@id/mainactivity_top_hscrollview"></android.support.v4.view.ViewPager>
+</RelativeLayout>
