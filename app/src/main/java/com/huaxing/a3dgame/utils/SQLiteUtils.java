@@ -27,7 +27,7 @@ public class SQLiteUtils {
      * @param gameNews
      * @return
      */
-    public  boolean saveGamedataToSQLite(GameNews gameNews) {
+    public synchronized boolean saveGamedataToSQLite(GameNews gameNews) {
         //创建数据库帮助类对象
         ContentValues values=null;
         long num=0;

@@ -5,6 +5,8 @@ import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.widget.ImageView;
 
+import com.huaxing.a3dgame.adapter.GridViewAdapter;
+
 /**
  *
  * 管理缓存的类
@@ -14,6 +16,7 @@ public class CacheManagerUtils {
     private FileCacheUtils fileCacheUtils=new FileCacheUtils();
     private WebCacheUtils webCacheUtils=new WebCacheUtils();
     private Handler handler=new Handler();
+    private Bitmap afterBitmap;
    //得到缓存
     public void getBitmapToCache(final String urlStr, final ImageView imageView){
         if(memoryCacheUtils.getBitmapToLrucache(urlStr)!=null){
@@ -27,8 +30,11 @@ public class CacheManagerUtils {
             webCacheUtils.getWebCache(urlStr, new WebCacheUtils.CallBacks() {
                 @Override
                 public void getResult(byte[] data) {
+                    if(GridViewAdapter.isGame){
+                       afterBitmap=ImageUtils.iamgeCompression(data,80,80);
+                    }
                     //压缩图片
-                    final Bitmap afterBitmap=ImageUtils.iamgeCompression(data,60,60);
+                    afterBitmap=ImageUtils.iamgeCompression(data,60,60);
                     //压缩后的图片转换成数组
                     byte[] buf=ImageUtils.bitmapToBytes(afterBitmap);
                     memoryCacheUtils.addBitmapToLrucache(urlStr,afterBitmap);

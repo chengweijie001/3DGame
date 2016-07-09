@@ -70,7 +70,7 @@ public class MainSubFragment extends Fragment implements ViewPager.OnPageChangeL
     //loder管理器
     LoaderManager loaderManager;
     //接口
-    LoaderManager.LoaderCallbacks<LinkedList<HashMap<String, Object>>> callbacks;
+   public static LoaderManager.LoaderCallbacks<LinkedList<HashMap<String, Object>>> callbacks;
 
     private Activity activity;
     Intent intent;

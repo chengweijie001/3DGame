@@ -2,6 +2,7 @@ package com.huaxing.a3dgame.utils;
 
 import android.os.Handler;
 
+import com.huaxing.a3dgame.model.Game;
 import com.huaxing.a3dgame.model.GameNews;
 
 import org.json.JSONObject;
@@ -61,7 +62,7 @@ public class JsonUtils {
 
         return null;
     }
-
+  //获得游戏新闻的方法
     public static LinkedList<HashMap<String,Object>> getLinkedList(String json){
         LinkedList<HashMap<String,Object>> data=new LinkedList<>();
         List<GameNews> gameNewses=new ArrayList<GameNews>();
@@ -86,6 +87,90 @@ public class JsonUtils {
             e.printStackTrace();
         }
 
+        return null;
+    }
+
+    /**
+     * 获得游戏介绍新闻
+     * @param json
+     * @return
+     * @throws Exception
+     */
+    public static LinkedList<HashMap<String,Object>> getListFromJson(String json) throws Exception{
+        if(json!=null){
+
+            LinkedList<HashMap<String,Object>> data=new LinkedList<>();
+            JSONObject object=new JSONObject(json);
+            JSONObject object1=object.getJSONObject("data");
+            for(int i=0;i<20;i++){
+                HashMap<String,Object> map=new HashMap<>();
+                JSONObject jsonObject=object1.getJSONObject(i+"");
+                String id=jsonObject.getString("id");
+                String typeid=jsonObject.getString("typeid");
+                String title=jsonObject.getString("title");
+                String litpic="http://www.3dmgame.com"+jsonObject.getString("litpic");
+                String pubdate=jsonObject.getString("pubdate");
+                String arcurl=jsonObject.getString("arcurl");
+                map.put("id",id);
+                map.put("typeid",typeid);
+                map.put("title",title);
+                map.put("litpic",litpic);
+                map.put("pubdate",pubdate);
+                map.put("arcurl",arcurl);
+                data.add(map);
+            }
+            return data;
+        }
+        return null;
+    }
+
+
+    //解析游戏详情数据
+    public static List<Game> getGamesFromJson(String json) throws  Exception{
+        if(json!=null){
+            List<Game> data=new ArrayList<>();
+            JSONObject object=new JSONObject(json);
+            String title=object.getString("title");
+            String litpic=object.getString("litpic");
+            String pubdate=object.getString("pubdate");
+            String description=object.getString("description");
+            String game_bbs=object.getString("game_bbs");
+            String websit=object.getString("websit");
+            String release_company=object.getString("release_company");
+            String made_company=object.getString("made_company");
+            String terrace=object.getString("terrace");
+            String language=object.getString("language");
+            String release_date=object.getString("release_date");
+            String tid=object.getString("tid");
+            String arcurl=object.getString("arcurl");
+            Game game=new Game(title,litpic,pubdate,description,game_bbs,websit,release_company,
+                    made_company,terrace,language,release_date,tid,arcurl);
+            data.add(game);
+            return data;
+        }
+        return null;
+    }
+    //解析游戏详情数据2
+    public static List<HashMap<String,Object>> getGamesThemeFromJson(String json) throws Exception{
+        if(json!=null){
+            List<HashMap<String,Object>> data=new ArrayList<>();
+            JSONObject object=new JSONObject(json);
+            JSONObject object1=object.getJSONObject("gl");
+            for (int i=0;i<14;i++){
+                JSONObject object2=object1.getJSONObject(i+"");
+                String shorttitle=object2.getString("shorttitle");
+                String writer=object2.getString("writer");
+                String description=object2.getString("description");
+                String arcurl=object2.getString("arcurl");
+                HashMap<String,Object> map=new HashMap<>();
+                map.put("shorttitle",shorttitle);
+                map.put("writer",writer);
+                map.put("description",description);
+                map.put("arcurl",arcurl);
+                data.add(map);
+            }
+            return data;
+        }
         return null;
     }
 }

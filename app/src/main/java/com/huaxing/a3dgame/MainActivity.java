@@ -11,7 +11,9 @@ import android.widget.Toast;
 
 import com.huaxing.a3dgame.adapter.MainFragmentAdapter;
 import com.huaxing.a3dgame.fragment.ForumFragment;
+import com.huaxing.a3dgame.fragment.GameFragment;
 import com.huaxing.a3dgame.fragment.MainFragment;
+import com.huaxing.a3dgame.utils.SQLiteUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +37,10 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
         List<Fragment> fragments = new ArrayList<>();
         MainFragment mainFragment = new MainFragment(this, getSupportFragmentManager());
         ForumFragment forumFragment = new ForumFragment();
+        GameFragment gameFragment=new GameFragment();
         fragments.add(mainFragment);
         fragments.add(forumFragment);
+        fragments.add(gameFragment);
         MainFragmentAdapter adapter = new MainFragmentAdapter(getSupportFragmentManager(), fragments);
         viewPager.setAdapter(adapter);
         initBottomBackground();
@@ -61,14 +65,13 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
                 initBottomBackground();
                 radioButton_bottom02.setEnabled(false);
                 Log.i("MainActivity","onCheckedChanged执行了");
-                Toast.makeText(this,"mainactivity_bottom_btn01",Toast.LENGTH_SHORT).show();
                 viewPager.setCurrentItem(1);
 
                 break;
             case R.id.mainactivity_bottom_btn03:
                 initBottomBackground();
                 radioButton_bottom03.setEnabled(false);
-                Toast.makeText(this,"mainactivity_bottom_btn01",Toast.LENGTH_SHORT).show();
+                viewPager.setCurrentItem(2);
                 break;
         }
     }
@@ -79,5 +82,11 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
         radioButton_bottom01.setEnabled(true);
         radioButton_bottom02.setEnabled(true);
         radioButton_bottom03.setEnabled(true);
+    }
+
+
+        protected void onDestroy() {
+        super.onDestroy();
+        new SQLiteUtils(this).delAllDataFromSQLite();
     }
 }

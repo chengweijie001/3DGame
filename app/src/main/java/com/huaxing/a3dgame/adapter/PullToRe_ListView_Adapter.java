@@ -75,9 +75,14 @@ public class PullToRe_ListView_Adapter extends BaseAdapter {
         String imagePath=data.get(position).get("litpic").toString();
         Log.i("bbb",imagePath);
         if(imagePath!=null&&imagePath.contains(".jpg")) {
+            //获得压缩图片不同的比例
+            GridViewAdapter.isGame=false;
             holder.imageView.setTag(imagePath);
           new CacheManagerUtils().getBitmapToCache(imagePath,holder.imageView);
         }
+
+
+
         return convertView;
     }
     class ViewHolder{

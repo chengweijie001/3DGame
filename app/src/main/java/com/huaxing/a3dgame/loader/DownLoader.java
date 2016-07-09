@@ -23,13 +23,13 @@ public class DownLoader extends AsyncTaskLoader<LinkedList<HashMap<String, Objec
     private int typeId;
     String url;
 
-    public DownLoader(Context context, Bundle bundle ){
+    public DownLoader(Context context, Bundle bundle) {
         super(context);
-        this.bundle=bundle;
-        typeId=bundle.getInt("typeid");
-        if(typeId!=1){
-            url=bundle.getString("url");
-            Log.i("DownLoader",url);
+        this.bundle = bundle;
+        typeId = bundle.getInt("typeid");
+        if (typeId != 1) {
+            url = bundle.getString("url");
+            Log.i("DownLoader", url);
         }
 
 
@@ -44,20 +44,22 @@ public class DownLoader extends AsyncTaskLoader<LinkedList<HashMap<String, Objec
 
     @Override
     public LinkedList<HashMap<String, Object>> loadInBackground() {
-        SQLiteUtils sqLiteUtils=new SQLiteUtils(getContext());
-        if(typeId!=1){
-            byte[] buf= HttpUtils.downLoad(url);
-            try {
-                String json= new String(buf,"utf-8");
-                Log.i("SubMainFragement",typeId+"");
-                Log.i("SubMainFragement",sqLiteUtils.getGameNewsListByTypeId(typeId).toString());
-                return  JsonUtils.getLinkedList(json);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+        SQLiteUtils sqLiteUtils = new SQLiteUtils(getContext());
+        if (typeId != 1) {
+            byte[] buf = HttpUtils.downLoad(url);
+           if(buf != null) {
+                try {
+                    String json = new String(buf, "utf-8");
+                    Log.i("SubMainFragement", typeId + "");
+                    Log.i("SubMainFragement", sqLiteUtils.getGameNewsListByTypeId(typeId).toString());
+                    return JsonUtils.getLinkedList(json);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
             }
-
         }
-        Log.i("SubMainFragement",typeId+":typeId");
-        return  sqLiteUtils.getGameNewsList();
+
+        Log.i("SubMainFragement", typeId + ":typeId");
+        return sqLiteUtils.getGameNewsList();
     }
 }

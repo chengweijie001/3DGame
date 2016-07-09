@@ -27,7 +27,8 @@
         <service android:name=".service.DownLoadService02" />
 
         <activity android:name=".WebViewActivityNews" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".GameActivity"></activity>
     </application>
 
 </manifest>
