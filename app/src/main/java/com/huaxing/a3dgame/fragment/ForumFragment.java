@@ -27,9 +27,7 @@ public class ForumFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.froum_fragment_item,null);
-        webView=(WebView)view.findViewById(R.id.web_view_news_webview);
-
-
+        webView=(WebView)view.findViewById(R.id.froum_webview);
         progressBar=(ProgressBar)view.findViewById(R.id.froum_probar);
         Log.i("aaa",url);
         //加载网页
@@ -62,6 +60,6 @@ public class ForumFragment extends Fragment{
             }
 
         });
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return view;
     }
 }

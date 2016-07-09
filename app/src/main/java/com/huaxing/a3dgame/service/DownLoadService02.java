@@ -6,7 +6,6 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.huaxing.a3dgame.fragment.MainFragment;
 import com.huaxing.a3dgame.model.GameNews;
 import com.huaxing.a3dgame.utils.HttpUtils;
 import com.huaxing.a3dgame.utils.JsonUtils;

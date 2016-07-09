@@ -22,12 +22,12 @@
 
         <service android:name=".service.DownLoadService" />
 
-        <activity android:name=".MainActivity" />
         <activity android:name=".GuideActivity" />
 
         <service android:name=".service.DownLoadService02" />
 
-        <activity android:name=".WebViewActivityNews"></activity>
+        <activity android:name=".WebViewActivityNews" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
