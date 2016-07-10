@@ -150,8 +150,10 @@ public class MainSubFragment extends Fragment implements ViewPager.OnPageChangeL
 
             @Override
             public void onLoadFinished(Loader<LinkedList<HashMap<String, Object>>> loader, LinkedList<HashMap<String, Object>> data) {
+                if(data==null){
+                    return;
+                }
 
-                if (data != null) {
                     if(num>1){
                         addData(data);
                     }
@@ -164,9 +166,7 @@ public class MainSubFragment extends Fragment implements ViewPager.OnPageChangeL
                     //加载完
                     Log.i("isfinish", "onLoadFinished执行了");
 
-                } else {
-                    Log.i("aaa", "数据加载失败");
-                }
+
             }
 
             @Override

@@ -10,7 +10,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.huaxing.a3dgame.GameActivity;
 import com.huaxing.a3dgame.R;
+import com.huaxing.a3dgame.model.Game;
 import com.huaxing.a3dgame.utils.CacheManagerUtils;
 
 import java.io.File;
@@ -77,6 +79,7 @@ public class PullToRe_ListView_Adapter extends BaseAdapter {
         if(imagePath!=null&&imagePath.contains(".jpg")) {
             //获得压缩图片不同的比例
             GridViewAdapter.isGame=false;
+            GameActivity.isGameActivity=false;
             holder.imageView.setTag(imagePath);
           new CacheManagerUtils().getBitmapToCache(imagePath,holder.imageView);
         }

@@ -29,7 +29,6 @@ public class DownLoader extends AsyncTaskLoader<LinkedList<HashMap<String, Objec
         typeId = bundle.getInt("typeid");
         if (typeId != 1) {
             url = bundle.getString("url");
-            Log.i("DownLoader", url);
         }
 
 

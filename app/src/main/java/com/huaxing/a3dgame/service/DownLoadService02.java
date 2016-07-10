@@ -17,8 +17,8 @@ import java.util.List;
  * Created by Administrator on 2016/7/7.
  */
 public class DownLoadService02 extends Service {
-    public static String urlStr="http://www.3dmgame.com/sitemap/api.php?row=20&typeid=";
-    private static  String urlStr1="&paging=1&page=";
+    public static String urlStr="http://www.3dmgame.com/sitemap/api.php?row=20&typeid=1&paging=1&page=";
+
     List<GameNews> gameNewses;
     int num=1;
     String url=null;
@@ -31,11 +31,9 @@ public class DownLoadService02 extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.i("DownLoadService","下载数据");
-        int typeId=intent.getIntExtra("typeId",1);
         int downId=intent.getIntExtra("downId",1);
-        Log.i("onStartCommand",typeId+":typeId");
         Log.i("onStartCommand",downId+":downId");
-        url=urlStr+typeId+urlStr1+downId;
+        url=urlStr+downId;
         //异步任务下载数据
         new Thread(new Runnable() {
             @Override

@@ -138,7 +138,9 @@ public class SubMainFragement  extends Fragment {
 
             @Override
             public void onLoadFinished(Loader<LinkedList<HashMap<String, Object>>> loader, LinkedList<HashMap<String, Object>> data) {
-                if (data != null) {
+                if (data == null) {
+                    return;
+                }
                     if(num>101){
                         addData(data);
                     }
@@ -151,9 +153,7 @@ public class SubMainFragement  extends Fragment {
                     //加载完
                     Log.i("isfinish", "onLoadFinished执行了");
 
-                } else {
-                    Log.i("aaa", "数据加载失败");
-                }
+
             }
             @Override
             public void onLoaderReset(Loader<LinkedList<HashMap<String, Object>>> loader) {

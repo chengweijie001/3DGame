@@ -131,7 +131,7 @@ public class JsonUtils {
             List<Game> data=new ArrayList<>();
             JSONObject object=new JSONObject(json);
             String title=object.getString("title");
-            String litpic=object.getString("litpic");
+            String litpic="http://www.3dmgame.com"+object.getString("litpic");
             String pubdate=object.getString("pubdate");
             String description=object.getString("description");
             String game_bbs=object.getString("game_bbs");
@@ -156,14 +156,14 @@ public class JsonUtils {
             List<HashMap<String,Object>> data=new ArrayList<>();
             JSONObject object=new JSONObject(json);
             JSONObject object1=object.getJSONObject("gl");
-            for (int i=0;i<14;i++){
+            for (int i=0;i<4;i++){
                 JSONObject object2=object1.getJSONObject(i+"");
-                String shorttitle=object2.getString("shorttitle");
+                String title=object2.getString("title");
                 String writer=object2.getString("writer");
                 String description=object2.getString("description");
                 String arcurl=object2.getString("arcurl");
                 HashMap<String,Object> map=new HashMap<>();
-                map.put("shorttitle",shorttitle);
+                map.put("title",title);
                 map.put("writer",writer);
                 map.put("description",description);
                 map.put("arcurl",arcurl);

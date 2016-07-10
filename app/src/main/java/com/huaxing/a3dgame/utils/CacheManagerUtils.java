@@ -3,8 +3,10 @@ package com.huaxing.a3dgame.utils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
+import android.os.Looper;
 import android.widget.ImageView;
 
+import com.huaxing.a3dgame.GameActivity;
 import com.huaxing.a3dgame.adapter.GridViewAdapter;
 
 /**
@@ -30,16 +32,28 @@ public class CacheManagerUtils {
             webCacheUtils.getWebCache(urlStr, new WebCacheUtils.CallBacks() {
                 @Override
                 public void getResult(byte[] data) {
-                    if(GridViewAdapter.isGame){
-                       afterBitmap=ImageUtils.iamgeCompression(data,80,80);
+                    if(data.length==0){
+                        return;
                     }
-                    //压缩图片
-                    afterBitmap=ImageUtils.iamgeCompression(data,60,60);
+                    if(GameActivity.isGameActivity){
+                        //游戏详情需要的图片
+                        afterBitmap=ImageUtils.iamgeCompression(data,100,120);
+                    }
+                    else if(GridViewAdapter.isGame){
+                        //游戏展示需要的图片
+                       afterBitmap=ImageUtils.iamgeCompression(data,80,80);
+                    }else {
+                        //压缩图片 新闻图片
+                        afterBitmap = ImageUtils.iamgeCompression(data, 60, 60);
+                    }
                     //压缩后的图片转换成数组
                     byte[] buf=ImageUtils.bitmapToBytes(afterBitmap);
                     memoryCacheUtils.addBitmapToLrucache(urlStr,afterBitmap);
                     fileCacheUtils.saveFileToCache(urlStr,buf);
                     //调用Handler的Post方法 在UI线程更改视图
+//                    Looper.prepare();
+//                    Looper.loop();
+
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
